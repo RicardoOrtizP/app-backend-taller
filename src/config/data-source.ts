@@ -1,4 +1,9 @@
+import "reflect-metadata";
+import dotenv from "dotenv";
+dotenv.config();
 import { DataSource } from "typeorm";
+import { UserEntity } from "../modules/users/entities/user.entity";
+import { RefreshTokenEntity } from "../modules/auth/entities/refresh-token.entity";
 
 // Data source de base de datos
 export function createDataSource(url: string): DataSource {
@@ -8,7 +13,7 @@ export function createDataSource(url: string): DataSource {
     synchronize: true,
     uuidExtension: "pgcrypto",
     logging: false,
-    entities: [],
+    entities: [UserEntity, RefreshTokenEntity],
     migrations: [],
     migrationsRun: false,
   });
