@@ -4,6 +4,7 @@ dotenv.config();
 import { DataSource } from "typeorm";
 import { UserEntity } from "../modules/users/entities/user.entity";
 import { RefreshTokenEntity } from "../modules/auth/entities/refresh-token.entity";
+import { CustomerEntity } from "../modules/customers/entities/customer.entity";
 
 // Data source de base de datos
 export function createDataSource(url: string): DataSource {
@@ -13,7 +14,7 @@ export function createDataSource(url: string): DataSource {
     synchronize: true,
     uuidExtension: "pgcrypto",
     logging: false,
-    entities: [UserEntity, RefreshTokenEntity],
+    entities: [UserEntity, RefreshTokenEntity, CustomerEntity],
     migrations: [],
     migrationsRun: false,
   });

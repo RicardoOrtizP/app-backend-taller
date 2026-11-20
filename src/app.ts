@@ -6,6 +6,7 @@ import { notFound } from "./middlewares/not-found";
 import { errorHandler } from "./middlewares/error-handler";
 import authRouter from "./modules/auth/routes/auth.routes";
 import usersRouter from "./modules/users/routes/user.routes";
+import customersRouter from "./modules/customers/routes/customer.routes";
 
 export function createApp() {
   const app = express();
@@ -17,6 +18,7 @@ export function createApp() {
 
   app.use("/api/auth", authRouter);
   app.use("/api/users", usersRouter);
+  app.use("/api/customers", customersRouter);
 
   app.use(notFound);
   app.use(errorHandler);
